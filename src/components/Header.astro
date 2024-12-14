@@ -5,7 +5,14 @@ import Hamburger from './Hamburger.astro';
 
 ---
 <header>
-  <nav>
+  <nav class="flex justify-between">
+    <a
+      aria-current={Astro.url.pathname === "/" ? "page" : false}
+      class="inline-flex gap-2 items-center"
+      href="/"
+    >
+      <img src="/logo.jpg" alt="Logo" class="h-10 w-10" />
+    </a>
     <Hamburger />
     <ThemeIcon />
     <Navigation />
