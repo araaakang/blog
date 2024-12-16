@@ -1,15 +1,11 @@
 ---
-import Social from './Social.astro';
+import InstagramIcon from './InstagramIcon.astro';
+import GitHubIcon from './GitHubIcon.astro';
 ---
-<style>
-    footer {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-</style>  
-
-<footer>
-    <Social platform="github" username="araaakang" />
-    <Social platform="instagram" username="araaakang" />
+<footer class="flex flex-col items-center gap-2 py-4 mt-auto">
+    <div class="flex gap-4">
+        <GitHubIcon />
+        <InstagramIcon />
+    </div>
+    <p> © araaakang, <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></p>
 </footer>
