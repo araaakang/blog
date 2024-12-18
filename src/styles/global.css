@@ -22,6 +22,18 @@ h2 {
   font-weight: 700;
 }
 
+ul, ol {
+  list-style-position: inside;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
 p, li {
   margin: 0.5rem 0;
   font-weight: 400;

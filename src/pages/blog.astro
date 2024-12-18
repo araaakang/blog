@@ -7,7 +7,7 @@ const allPosts = await Astro.glob('./posts/*.md');
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<ul class="list-disc list-inside">
+	<ul>
 		{allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
 	</ul>
 </BaseLayout>

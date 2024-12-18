@@ -20,7 +20,7 @@ const skills = ["JavaScript", "TypeScript", "React", "Vue"];
 	<p>開始自學的過程中偶然想起很小的時候無心對工程師父親說過一句話：<strong>「我長大絕對不會像你一樣成為一位工程師」</strong>，當時是因為認定自己不會喜歡數學和邏輯，回想起來很諷刺但也很有意思，於是更堅定了要轉職的決心。</p>
 	<p>目前為止有近 2 年左右的網頁開發經驗，因為不希望自己原地踏步只會切版 CRUD ，所以決定開始寫部落格記錄自己成長的過程，同時督促自己持續學習踏出舒適圈。</p>
 	<h2>Fun facts about me :D</h2>
-	<ul class="list-disc list-inside">
+	<ul>
 		<li>{identity.hometown}人，目前住在{identity.country}，一個從設計系逃走（Ｘ）轉職成功（Ｏ）的{identity.occupation}</li>
 		<li>之所以取名 {identity.firstName} 是因為我很喜歡韓國，所以幫自己取了個韓國名字 (강아라)。從高中到現在自學 8 年韓文，歌單裡 90% 都是韓文歌，去首爾獨旅過兩次，得了首爾病到現在還沒完全痊癒</li>
 		{identity.hobbies.length &&
@@ -30,7 +30,7 @@ const skills = ["JavaScript", "TypeScript", "React", "Vue"];
 		<li>一些 2024 年比較重要的改變是：每週開始固定去上皮拉提斯，還有成功維持了每天練英打、英文口說和閱讀的習慣，最後就是開了這個部落格！</li>
 	</ul>
 	<h2>Skills</h2>
-	<ul class="list-disc list-inside">
+	<ul>
 		{skills.map((skill) => <li>{skill}</li>)}
 	</ul>
 	<p class="text-sm text-gray-500 mt-4"><i>updated at 2024-12-17</i></p>
