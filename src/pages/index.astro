@@ -1,31 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { formatDateToChinese } from '../utils/date';
+import BlogPost from '../components/BlogPost.astro';
 const pageTitle = "Ara Kang";
 const allPosts = await Astro.glob('./posts/*.md');
 ---
-<style>
-.date {
-  font-weight: 400;
-  color: #6b7280;
-}
-</style>
-
 <BaseLayout pageTitle={pageTitle}>
   <div class="py-4">
     <p>Hi there 👋 </p>
     <p>I'm a Front-end Engineer with a design background who works systematically in a team and is eager to join an open-minded, innovative, and product-oriented company.</p>
   </div>
-  <div class="flex flex-col gap-8">
     {allPosts.map((post) =>
-      <div>
-        <p class="date">{formatDateToChinese(post.frontmatter.pubDate.toString().slice(0,10))}</p>
-        <a href={post.url}><h2 class="mt-0">{post.frontmatter.title}</h2></a>
-        <p>{post.frontmatter.description}</p>
-        <div class="tags">{post.frontmatter.tags.map((tag) => (
-          <p class="tag"><a href={`/tags/${tag}`}># {tag}</a></p>
-        ))}</div>
-      </div>
+      <ul>
+        <BlogPost url={post.url} frontmatter={post.frontmatter} detailed />
+      </ul>
     )}
-  </div>
 </BaseLayout>

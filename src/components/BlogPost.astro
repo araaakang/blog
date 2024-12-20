@@ -1,8 +1,26 @@
 ---
-const { url, frontmatter } = Astro.props;
+import { formatDateToChinese } from '../utils/date';
+const { url, frontmatter, detailed = false } = Astro.props;
 ---
-<li class="list-none flex gap-8 items-center">
-    <p class="text-sm text-gray-500">{frontmatter.pubDate.toString().slice(0,10)}</p>
-    <a href={url}>{frontmatter.title}</a>
-</li>
+<style>
+    .date {
+      font-weight: 400;
+      color: #6b7280;
+    }
+</style>
 
+{detailed ? (
+    <li  class="list-none flex flex-col">
+        <p class="date">{formatDateToChinese(frontmatter.pubDate.toString().slice(0,10))}</p>
+        <h2 class="mt-0"><a href={url}>{frontmatter.title}</a></h2>
+        <p>{frontmatter.description}</p>
+        <div class="tags">{frontmatter.tags.map((tag) => (
+        <p class="tag"><a href={`/tags/${tag}`}># {tag}</a></p>
+        ))}</div>
+    </li>
+) : (
+    <li class="list-none flex gap-8 items-center">
+        <p class="text-sm text-gray-500">{frontmatter.pubDate.toString().slice(0,10)}</p>
+        <a href={url}>{frontmatter.title}</a>
+    </li>
+)}
