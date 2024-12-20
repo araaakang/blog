@@ -1,8 +1,17 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
 const pageTitle = "Ara Kang";
+const allPosts = await Astro.glob('./posts/*.md');
 ---
 <BaseLayout pageTitle={pageTitle}>
-  <p>Hi there 👋 </p>
-  <p>I'm a Front-end Engineer with a design background who works systematically in a team and is eager to join an open-minded, innovative, and product-oriented company.</p>
+  <div class="py-4">
+    <p>Hi there 👋 </p>
+    <p>I'm a Front-end Engineer with a design background who works systematically in a team and is eager to join an open-minded, innovative, and product-oriented company.</p>
+  </div>
+    {allPosts.map((post) =>
+      <ul>
+        <BlogPost url={post.url} frontmatter={post.frontmatter} detailed />
+      </ul>
+    )}
 </BaseLayout>
