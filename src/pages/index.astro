@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { formatDateToChinese } from '../utils/date';
 const pageTitle = "Ara Kang";
 const allPosts = await Astro.glob('./posts/*.md');
 ---
@@ -18,7 +19,7 @@ const allPosts = await Astro.glob('./posts/*.md');
   <div class="flex flex-col gap-8">
     {allPosts.map((post) =>
       <div>
-        <p class="date">{post.frontmatter.pubDate.toString().slice(0,10)}</p>
+        <p class="date">{formatDateToChinese(post.frontmatter.pubDate.toString().slice(0,10))}</p>
         <a href={post.url}><h2 class="mt-0">{post.frontmatter.title}</h2></a>
         <p>{post.frontmatter.description}</p>
         <div class="tags">{post.frontmatter.tags.map((tag) => (
